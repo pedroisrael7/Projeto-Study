@@ -1,0 +1,84 @@
+:host {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --ion-background-color: 0;
+}
+
+ion-content {
+  background: linear-gradient(135deg, #B0C4DE, #191970);
+}
+
+.custom-header {
+  background: #F8F8FF;
+
+  ion-toolbar {
+    background: #F8F8FF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ion-color-primary-shade);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.app-logo {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.profile-title {
+  font-size: 1.5rem;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--ion-color-primary-shade);
+  text-transform: uppercase;
+}
+
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logout-button-wrapper {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.settings-card {
+  margin: auto 0;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-card-content {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .settings-card {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

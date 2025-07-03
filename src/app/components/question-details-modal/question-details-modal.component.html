@@ -1,0 +1,43 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" class="exit">
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="question">
+  <ion-card class="question-card">
+    <ion-card-header>
+      <div class="question-meta">
+        <div class="question-date">
+          {{ question.createdAt | date: 'dd/MM/yyyy - HH:mm':'':'pt-BR' }}
+        </div>
+        <div class="question-author">
+          {{ question.userName }}
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="question-description">{{ question.description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item class="response-item">
+    <ion-label position="floating">Sua resposta</ion-label>
+    <ion-textarea aria-label="Sua resposta" [(ngModel)]="responseText" auto-grow></ion-textarea>
+  </ion-item>
+
+  <ion-button class="button" expand="block" shape="round" (click)="sendResponse()">Responder</ion-button>
+
+  <ion-card class="answer-card" *ngFor="let answer of answers$ | async">
+    <ion-card-content>
+      <div class="answer-author">{{ answer.userName }}</div>
+      <div class="answer-content">{{ answer.content }}</div>
+      <div class="answer-date">{{ answer.createdAt | date: 'dd/MM/yyyy - HH:mm':'':'pt-BR' }}</div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

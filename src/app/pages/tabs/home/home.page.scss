@@ -1,0 +1,118 @@
+:host {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --ion-background-color: 0;
+}
+
+ion-content {
+  background: linear-gradient(135deg, #F0F8FF, #F5F5DC);
+}
+
+.custom-header {
+  background: #F8F8FF;
+  color: white;
+
+  ion-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ion-color-primary-shade);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.question-card {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  background: #FFFFFF;
+  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  }
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.user-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ion-color-primary-shade);
+  margin: 0;
+}
+
+.question-preview {
+  font-size: 1rem;
+  color: #111;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.empty-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+
+
+  margin-top: 2rem;
+  font-size: 1.8rem;
+
+  ion-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: #828282;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #828282;
+  }
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comment-count {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: var(--ion-color-primary-shade);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .question-card {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

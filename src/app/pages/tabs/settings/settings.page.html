@@ -1,0 +1,32 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <ion-title>Configurações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="settings-wrapper">
+    <ion-img src="assets/icon/logo_full_appstudy.png" alt="Logo" class="app-logo"></ion-img>
+    <ion-card *ngIf="userData$ | async as userData" class="settings-card">
+      <ion-card-header>
+        <ion-card-title class="profile-title">Meu Perfil</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label><strong>Nome:</strong> {{ userData.name }}</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label><strong>Email:</strong> {{ userData.email }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="logout-button-wrapper">
+      <ion-button expand="block" color="danger" (click)="confirmLogout()" fill="solid">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Sair da conta
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

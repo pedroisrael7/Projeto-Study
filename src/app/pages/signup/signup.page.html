@@ -1,0 +1,72 @@
+<ion-content fullscreen>
+  <form [formGroup]="signupForm" (ngSubmit)="registerUser()">
+    <ion-card class="signup-card">
+      <ion-card-content class="signup-card-content">
+        <ion-card-title class="signup-title">Cadastre-se</ion-card-title>
+        <p class="signup-subtitle">Crie sua conta preenchendo os campos abaixo.</p>
+
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-input formControlName="name" type="text" placeholder="Digite seu nome" aria-label="Nome">
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="nameControl?.touched && nameControl?.invalid">
+          <small>Nome é obrigatório.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail" aria-label="E-mail">
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="emailControl?.touched && emailControl?.invalid">
+          <small *ngIf="emailControl?.errors?.['required']">E-mail é obrigatório.</small>
+          <small *ngIf="emailControl?.errors?.['email']">Digite um e-mail válido.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input formControlName="confirmEmail" type="email" placeholder="Confirme seu e-mail"
+            aria-label="Confirmação de e-mail">
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="confirmEmailControl?.touched && confirmEmailControl?.invalid">
+          <small>E-mail de confirmação inválido.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-icon name="lock-closed" slot="start"></ion-icon>
+          <ion-input formControlName="password" [type]="passwordVisible ? 'text' : 'password'"
+            placeholder="Digite sua senha" aria-label="Senha">
+          </ion-input>
+          <ion-button shape="round" slot="end" fill="clear" type="button" (click)="togglePasswordVisibility()"
+            aria-label="Mostrar ou ocultar senha">
+            <ion-icon [name]="passwordVisible ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-text color="danger" *ngIf="passwordControl?.touched && passwordControl?.invalid">
+          <small *ngIf="passwordControl?.errors?.['required']">Senha é obrigatória.</small>
+          <small *ngIf="passwordControl?.errors?.['minlength']">Mínimo de 6 caracteres.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-icon name="lock-closed" slot="start"></ion-icon>
+          <ion-input formControlName="confirmPassword" [type]="passwordVisible ? 'text' : 'password'"
+            placeholder="Confirme sua senha" aria-label="Confirmação de senha">
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="confirmPasswordControl?.touched && confirmPasswordControl?.invalid">
+          <small *ngIf="confirmPasswordControl?.errors?.['required']">Confirmação de senha obrigatória.</small>
+        </ion-text>
+
+        <ion-button expand="block" shape="round" type="submit">
+          CADASTRAR
+        </ion-button>
+
+        <div class="login-redirect">
+          <a [routerLink]="['/login']">Já tem uma conta? Faça login</a>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <ion-title>Enviar Dúvida</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label position="stacked">Digite sua dúvida:</ion-label>
+      <ion-input type="text" formControlName="description" aria-label="Descrição da dúvida"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+      <small>Dúvida é obrigatória.</small>
+    </ion-text>
+
+    <ion-button expand="block" shape="round" type="submit" [disabled]="form.invalid">
+      Publicar
+    </ion-button>
+  </form>
+</ion-content>

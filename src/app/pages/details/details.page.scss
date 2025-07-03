@@ -1,0 +1,144 @@
+:host {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --ion-background-color: 0;
+}
+
+ion-content {
+  background: linear-gradient(135deg, #6499ae, #191970);
+}
+
+.custom-header {
+  --background: var(--ion-color-primary);
+  color: white;
+
+  ion-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    --color: var(--ion-color-primary-shade);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+ion-item {
+  --background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 1rem;
+  width: 100%;
+}
+
+ion-input {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+  --padding-start: 0;
+}
+
+.question-card,
+.answer-card {
+  margin-bottom: 32px;
+  border-radius: 26px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0 12px;
+}
+
+.question-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.question-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.question-author {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ion-color-primary-shade);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.question-description {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #111;
+}
+
+.response-item {
+  background: #f0f8ff;
+  padding: 0.5rem 1rem;
+  margin: 2rem auto;
+  max-width: 680px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+
+  ion-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ion-color-primary-shade);
+  }
+
+  ion-input {
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+}
+
+.answer-author {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--ion-color-primary-shade);
+  margin-bottom: 1rem;
+}
+
+.answer-content {
+  font-size: 1.05rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.answer-date {
+  font-size: 0.8rem;
+  color: #444;
+  text-align: right;
+}
+
+.button {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.response-button {
+  width: 50%;
+  margin: 3rem auto;
+  height: 44px;
+  font-size: 1rem;
+  --border-radius: 12px;
+  --background: #0057e7;
+  --color: white;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+
+  ion-card,
+  .response-item {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,45 @@
+<ion-content fullscreen>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <ion-card class="login-card">
+      <ion-card-content class="login-card-content">
+        <ion-card-title class="login-title">Login</ion-card-title>
+        <p class="login-subtitle">Faça login para acessar sua conta.</p>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail" aria-label="Campo de e-mail">
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="emailControl?.touched && emailControl?.invalid">
+          <small *ngIf="emailControl?.errors?.['required']">E-mail é obrigatório.</small>
+          <small *ngIf="emailControl?.errors?.['email']">Digite um e-mail válido.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-icon name="lock-closed" slot="start"></ion-icon>
+          <ion-input formControlName="password" [type]="passwordVisible ? 'text' : 'password'"
+            placeholder="Digite sua senha" aria-label="Campo de senha">
+          </ion-input>
+          <ion-button shape="round" slot="end" fill="clear" type="button" (click)="togglePasswordVisibility()"
+            aria-label="Mostrar ou ocultar senha">
+            <ion-icon [name]="passwordVisible ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-text color="danger" *ngIf="passwordControl?.touched && passwordControl?.invalid">
+          <small *ngIf="passwordControl?.errors?.['required']">Senha é obrigatória.</small>
+        </ion-text>
+
+        <ion-button type="submit" expand="block" shape="round" class="btn-padded" [disabled]="loginForm.invalid">
+          ENTRAR
+        </ion-button>
+
+        <div class="forgot-password">
+          <a (click)="promptPasswordReset()">Esqueceu sua senha?</a>
+        </div>
+
+        <ion-button expand="block" shape="round" class="btn-padded" [routerLink]="['/signup']">
+          CADASTRE-SE
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

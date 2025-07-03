@@ -1,0 +1,34 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <ion-title>Adicionar Tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="ion-padding welcome-form">
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-input type="text" formControlName="description" aria-label="Descrição da tarefa"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+      <small>Descrição é obrigatória.</small>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Categoria</ion-label>
+      <ion-select formControlName="category" aria-label="Categoria da tarefa" interface="popover"
+        placeholder="Selecione uma categoria">
+        <ion-select-option value="Estudo">Estudo</ion-select-option>
+        <ion-select-option value="Faculdade">Faculdade</ion-select-option>
+        <ion-select-option value="Trabalho">Trabalho</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger" *ngIf="form.get('category')?.touched && form.get('category')?.invalid">
+      <small>Categoria é obrigatória.</small>
+    </ion-text>
+
+    <ion-button expand="block" shape="round" type="submit" [disabled]="form.invalid">
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>

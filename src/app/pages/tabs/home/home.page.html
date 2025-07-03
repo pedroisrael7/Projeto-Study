@@ -1,0 +1,42 @@
+<ion-header translucent="true" class="custom-header">
+  <ion-toolbar>
+    <ion-title>Dúvidas Recentes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" class="ion-padding">
+  <ng-container *ngIf="questions$ | async as questions">
+    <ng-container *ngIf="questions.length > 0; else noQuestions">
+      <ion-card *ngFor="let question of questions" class="question-card">
+        <ion-card-content (click)="openDetails(question)">
+          <div class="card-header">
+            <h3 class="user-name">{{ question.userName }}</h3>
+            <div class="card-actions">
+              <ion-button fill="clear" color="danger" size="small" *ngIf="auth.currentUser?.uid === question.userId"
+                (click)="confirmDelete(question); $event.stopPropagation()">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+
+              <div class="comment-count" *ngIf="question.answerCount != null">
+                <ion-icon name="chatbubble-ellipses-outline" style="font-size: 1rem;"></ion-icon>
+                <span>{{ question.answerCount }}</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="question-preview">
+            {{ question.description.length > 100 ? (question.description | slice: 0:100) + '...' : question.description
+            }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-template #noQuestions>
+      <div class="empty-list">
+        <ion-icon name="chatbubble-ellipses-outline" size="large"></ion-icon>
+        <p>Nenhuma dúvida publicada</p>
+      </div>
+    </ng-template>
+  </ng-container>
+</ion-content>

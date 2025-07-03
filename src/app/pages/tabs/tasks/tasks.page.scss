@@ -1,0 +1,133 @@
+:host {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --ion-background-color: 0;
+}
+
+ion-content {
+  background: linear-gradient(135deg, #b0e0e6, #f5f5f5);
+}
+
+.custom-header {
+  background: #F8F8FF;
+
+  ion-toolbar {
+    background: #F8F8FF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ion-color-primary-shade);
+  }
+}
+
+.task-card {
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.task-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.2rem;
+}
+
+.task-main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flex-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.task-desc {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  word-break: break-word;
+  color: #111;
+}
+
+.completed-text {
+  font-weight: normal;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+ion-button[fill='clear'] {
+  margin: 0;
+  padding: 0;
+  min-width: 2.5rem;
+}
+
+.category-title-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 1rem;
+}
+
+.category-title {
+  background: #F0F8FF;
+  border-radius: 12px;
+  padding: 2px 12px;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #828282;
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+
+  ion-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: #828282;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #828282;
+  }
+}
+
+@media (min-width: 768px) {
+  .task-card {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

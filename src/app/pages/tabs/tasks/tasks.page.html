@@ -1,0 +1,51 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <ion-title>Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ng-container *ngIf="tasksGrouped$ | async as taskGroups">
+    <div *ngIf="taskGroups.length === 0" class="empty-wrapper">
+      <ion-icon name="clipboard-outline" size="large"></ion-icon>
+      <p>Nenhuma tarefa encontrada</p>
+    </div>
+
+
+    <div *ngFor="let group of taskGroups">
+
+      <div class="category-title-wrapper">
+        <h2 class="category-title" [style.color]="group.color">
+          {{ group.category }}
+        </h2>
+      </div>
+
+      <ion-card class="task-card" *ngFor="let task of group.tasks">
+        <ion-card-content class="task-card-content">
+          <div class="task-main-row">
+            <div class="flex-content">
+              <ion-checkbox [checked]="task.completed" (ionChange)="toggleCompleted(task)"
+                aria-label="Marcar tarefa como concluída">
+              </ion-checkbox>
+
+              <p class="task-desc" [ngClass]="{ 'completed-text': task.completed }">
+                {{ task.description }}
+              </p>
+            </div>
+
+            <ion-button fill="clear" color="danger" (click)="deleteTask(task.id!)" aria-label="Excluir tarefa">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </div>
+
+          <ion-badge [style.backgroundColor]="task.categoryColor" class="task-badge">
+            {{ task.category }}
+          </ion-badge>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ng-container>
+
+
+</ion-content>
